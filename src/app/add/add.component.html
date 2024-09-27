@@ -1,0 +1,14 @@
+<h3 class="tituloadd">Añadir tarea</h3>
+
+<input #addT placeholder="Name"/>
+<select #addThorario>
+    <option *ngFor="let type of Horario"
+    [value] = "type">{{type}}</option>
+
+</select>
+<button (click)="addTarea(addT.value, 
+                            addThorario.value )">
+                                    Añadir tarea
+
+</button>
+<!--imput para descripcion tarea-->
