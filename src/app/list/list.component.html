@@ -1,10 +1,16 @@
 
-
-<p  *ngIf="tareas.length === 0"> No hay tareas</p>
-<ul>
-    <li *ngFor="let tarea of tareas;
-        let i = index">
-        {{tarea.addT}} - Hora de la tarea: {{tarea.addThorario}}
-        <button (click)="deleteTareas(i)">Eliminar</button>
-    </li>
-</ul>
+<div class="container">
+    <div class="vacio">
+        <p  *ngIf="tareas.length === 0"> No hay tareas</p>
+    </div>
+    
+    <div class="listado">
+        <ul>
+            <li *ngFor="let tarea of tareas;
+                let i = index">
+                {{tarea.addT}} - Hora de la tarea: {{tarea.addThorario}}
+                <button class="btnEliminar" (click)="deleteTareas(i)">Eliminar</button>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,61 @@
+/* Styles for the task list */
+.task-list {
+    width: 100%; /* Full width for the list */
+}
+
+.vacio {
+    margin-top: 20px; 
+    text-align: center; 
+    color: #666; 
+    font-size: 1.2em; 
+    font-style: italic; 
+}
+
+.listado {
+    margin-top: 20px; 
+}
+
+.listado ul {
+    list-style: none; 
+    padding: 0; 
+}
+
+.listado li {
+    padding: 15px; 
+    border-bottom: 1px solid #ddd; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    transition: background 0.3s; 
+}
+
+.listado li:last-child {
+    border-bottom: none; 
+}
+
+.listado li:hover {
+    background-color: rgba(0, 123, 255, 0.1); 
+}
+
+/* Styles for the delete button */
+.btnEliminar {
+    padding: 5px 10px; 
+    background: rgb(220, 53, 69); 
+    color: white; 
+    border: none; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    transition: background 0.3s, transform 0.2s; 
+}
+
+.btnEliminar:hover {
+    background: rgb(178, 30, 45); 
+    transform: translateY(-2px); 
+}
+
+
+
+
+
+
+

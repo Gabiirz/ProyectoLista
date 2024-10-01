@@ -1,0 +1,23 @@
+/* Styles for the add task component */
+.add-task {
+    width: 100%; /* Full width for the component */
+    margin-bottom: 20px; /* Space between components */
+}
+
+.titulo {
+    text-align: center; /* Center title */
+    margin-bottom: 15px; 
+}
+
+.box-nombre,
+.selecioHorario,
+.descripcionTarea {
+    margin-bottom: 15px; 
+    
+}
+
+.btnadd {
+    text-align: center; 
+}
+
+
