@@ -1,10 +1,27 @@
 
 
-<main class="main">
-  <a routerLink="/list">Lista de tareas</a>
 
-  <a routerLink="/add">añadir tareas</a>
-  <router-outlet></router-outlet>
-</main>
+    
+
+  <main class="main">
+    
+    <div class="general">
+
+      <div class="navegador">
+      
+        <div class="list">
+         <a routerLink="/list">Lista de tareas</a>
+        </div>
+
+        <div class="add">
+          <a routerLink="/add">Añadir tareas</a>
+        </div>
+        
+      </div> 
+
+      <router-outlet></router-outlet>
+    
+    </div>
+  </main>
 
 

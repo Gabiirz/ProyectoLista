@@ -1,23 +1,36 @@
-/* Styles for the add task component */
-.add-task {
-    width: 100%; /* Full width for the component */
-    margin-bottom: 20px; /* Space between components */
-}
-
-.titulo {
-    text-align: center; /* Center title */
+.titulo{
+    text-align: center;
     margin-bottom: 15px; 
 }
-
 .box-nombre,
 .selecioHorario,
 .descripcionTarea {
-    margin-bottom: 15px; 
-    
+    margin-bottom: 15px;    
 }
 
 .btnadd {
     text-align: center; 
+    margin-bottom: 10px;
 }
 
+.btn {
+    cursor: pointer; 
+    background-color: #007bff; 
+    color: white; 
+    border: none; 
+    padding: 12px 20px; 
+    border-radius: 4px; 
+    font-size: 1em; 
+    transition: background 0.3s; 
+}
+
+.btn:hover {
+    background-color: #0056b3; 
+    transform: translateY(-2px); 
+}
+
+#descripcion{
+    width: 270px;
+    height: 16.5px;
+}
 
