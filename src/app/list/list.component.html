@@ -8,7 +8,9 @@
         <ul>
             <li *ngFor="let tarea of tareas;
                 let i = index">
-                {{tarea.addT}} - Hora de la tarea: {{tarea.addThorario}}
+                {{tarea.addT}} -
+                Hora: {{tarea.addThorario}} -
+                Tarea: {{ tarea.addDescripcion }} 
                 <button class="btnEliminar" (click)="deleteTareas(i)">Eliminar</button>
             </li>
         </ul>

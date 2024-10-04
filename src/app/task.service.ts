@@ -19,9 +19,9 @@ export class TaskService {
   }
 
   tareas = [
-    {addT: 'Hacer la cama', addThorario:'10 a.m'},
-    {addT: 'Realizar los deberes', addThorario:'2 p.m'},
-    {addT: 'Ir a por la compra', addThorario:'5 p.m'}
+    {addT: 'Limpieza', addThorario:'10 a.m', addDescripcion: 'Arreglar las sábanas y organizar la cama' },
+    {addT: 'Estudiar', addThorario:'2 p.m', addDescripcion: 'Estudiar matemáticas y física'},
+    {addT: 'Compra', addThorario:'5 p.m', addDescripcion: 'Comprar pan, leche y frutas'}
     
   ];
   
@@ -30,7 +30,7 @@ export class TaskService {
 
   }
   
-  addTarea(tarea : {addT: string, addThorario: string}){
+  addTarea(tarea : {addT: string, addThorario: string, addDescripcion: string}){
     this.tareas.push(tarea);
     this.saveToLocalStorage();
     

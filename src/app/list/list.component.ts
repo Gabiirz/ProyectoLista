@@ -11,7 +11,7 @@ import { TaskService } from '../task.service';
 })
 export class ListComponent implements OnInit{
 
-  tareas: {addT: string, addThorario: string} []= [];
+  tareas: {addT: string, addThorario: string, addDescripcion: string} []= [];
 
   constructor(private taskService: TaskService){}
 

@@ -1,7 +1,7 @@
 .titulo{
     text-align: center;
-    margin-bottom: 15px; 
 }
+.titulo,
 .box-nombre,
 .selecioHorario,
 .descripcionTarea {
@@ -31,6 +31,13 @@
 
 #descripcion{
     width: 270px;
-    height: 16.5px;
+    height: 19px;
+}
+
+label{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
 }
 

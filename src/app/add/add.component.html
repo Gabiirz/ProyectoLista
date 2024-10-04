@@ -20,7 +20,7 @@
 
     <div class="btnadd">
         <button class="btn"(click)="addTarea(addT.value, 
-                                    addThorario.value )">
+                                    addThorario.value, addDescripcion.value)">
                                             Añadir tarea
 
         </button>
@@ -28,7 +28,7 @@
 
     <div class="descripcionTarea">
         <label for="descripcion">Descripción de la tarea </label>
-        <textarea id="descripcion"></textarea>
+        <textarea id="descripcion" #addDescripcion></textarea>
     </div>
 </div>
 

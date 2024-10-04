@@ -15,8 +15,8 @@ export class AddComponent {
   constructor(private taskService: TaskService){}
 
   
-  addTarea(addT: string, addThorario: string){
-    this.taskService.addTarea({addT, addThorario});
+  addTarea(addT: string, addThorario: string, addDescripcion: string){
+    this.taskService.addTarea({addT, addThorario, addDescripcion});
   }
 
   
