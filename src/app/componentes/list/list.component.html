@@ -1,0 +1,19 @@
+
+<div class="container">
+    <div class="vacio">
+        <p  *ngIf="tareas.length === 0"> No hay tareas</p>
+    </div>
+    
+    <div class="listado" *ngFor="let tarea of tareas;
+                let i = index">
+            <div class="tareasN">
+                <p>{{tarea.addT}}</p>
+                <p>Hora: {{tarea.addThorario}}</p>
+                <p>Tarea: {{ tarea.addDescripcion }}</p>
+            </div>
+
+            <div class="btnELiminar">
+                <button class="btnEliminar" (click)="deleteTareas(i)">Eliminar</button>
+            </div>
+    </div>
+</div>

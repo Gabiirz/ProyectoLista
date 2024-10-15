@@ -14,7 +14,6 @@
         <select class="selecHorario" #addThorario>
             <option *ngFor="let type of Horario"
             [value] = "type">{{type}}</option>
-
         </select>
     </div>
 
@@ -28,7 +27,7 @@
 
     <div class="descripcionTarea">
         <label for="descripcion">Descripción de la tarea </label>
-        <textarea id="descripcion" #addDescripcion></textarea>
+        <textarea id="descripcion" maxlength="10" #addDescripcion></textarea>
     </div>
 </div>
 

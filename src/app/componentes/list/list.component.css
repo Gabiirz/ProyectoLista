@@ -7,17 +7,13 @@
 }
 
 .listado {
-    list-style: none;  
-}
-
-.listado li {
-    padding: 8px; 
-    display: flex; 
+    display: flex;
     justify-content: space-between; 
-    align-items: center;
-}
+    width: 100%; 
+  }
 
-.listado li:hover {
+
+p:hover {
     background-color: rgba(0, 123, 255, 0.1); 
 }
 
@@ -28,7 +24,6 @@
     border: none; 
     border-radius: 4px; 
     cursor: pointer; 
-    margin-left: 35px;
 }
 
 .btnEliminar:hover {
