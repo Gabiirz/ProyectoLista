@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { TaskService } from '../../services/task.service';
+import { TaskService } from '../../../services/task.service';
 
 @Component({
   selector: 'app-add',
