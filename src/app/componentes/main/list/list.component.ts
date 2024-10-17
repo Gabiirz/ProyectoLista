@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { TaskService } from '../../../services/task.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,9 +13,12 @@ import { TaskService } from '../../../services/task.service';
 })
 export class ListComponent implements OnInit{
 
-  tareas: {addT: string, addThorario: string, addDescripcion: string} []= [];
+  tareas: {id: number, addT: string, addThorario: string, addDescripcion: string} []= [];
 
-  constructor(private taskService: TaskService){}
+  editingIndex: number | null = null;
+  dialog: any;
+
+  constructor(private taskService: TaskService, private router: Router){}
 
   ngOnInit(): void {
     this.tareas = this.taskService.getTareas();
@@ -24,6 +28,12 @@ export class ListComponent implements OnInit{
   deleteTareas(index: number){
     this.taskService.deleteTarea(index);
   }
+
+  viewTarea(id: number){
+    this.router.navigate(['/tarea', id]);
+  }
+
+
 
 
 

@@ -9,7 +9,7 @@ import { MainComponent } from './componentes/main/main.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, HeaderComponent, MainComponent],
+  imports: [HeaderComponent, MainComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

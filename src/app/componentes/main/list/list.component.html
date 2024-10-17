@@ -9,10 +9,12 @@
             <div class="tareasN">
                 <p>{{tarea.addT}}</p>
                 <p>Hora: {{tarea.addThorario}}</p>
-                <p>Tarea: {{ tarea.addDescripcion }}</p>
             </div>
 
-       
+            <div class="btnDetail">
+                <button class="btnDetail" (click)="viewTarea(i)">Ver tarea</button>
+            </div>
+
             <div class="btnELiminar">
                 <button class="btnEliminar" (click)="deleteTareas(i)">Eliminar</button>
             </div>
