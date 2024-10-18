@@ -5,6 +5,7 @@ import { DetailComponent } from './componentes/main/detail/detail.component';
 
 
 
+
 export const routes: Routes = [
 
     {path: 'list', component: ListComponent},

@@ -6,17 +6,21 @@
     
     <div class="listado" *ngFor="let tarea of tareas;
                 let i = index">
+
             <div class="tareasN">
                 <p>{{tarea.addT}}</p>
+            </div>
+                
+            <div class="horario">
                 <p>Hora: {{tarea.addThorario}}</p>
             </div>
 
-            <div class="btnDetail">
+            <div class="btnDetalles">
                 <button class="btnDetail" (click)="viewTarea(i)">Ver tarea</button>
             </div>
 
             <div class="btnELiminar">
-                <button class="btnEliminar" (click)="deleteTareas(i)">Eliminar</button>
+                <button class="btnEliminate" (click)="deleteTareas(i)">Eliminar</button>
             </div>
     </div>
 </div>
