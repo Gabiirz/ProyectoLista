@@ -1,1 +1,31 @@
+<div class="container">
+    <div class="titulo">
+        <h3 class="tituloDetalle">DETALLES</h3>
+    </div>
 
+    <div class="tareaNyH">
+        <div class="detalleNombre">
+            <h4>Tarea - {{ tarea?.addT }}</h4>
+        </div>
+
+        <div class="detalleHorario">
+            <h4>Horario - {{ tarea?.addThorario }}</h4>
+        </div>
+    </div>
+
+    <div class="detalleT">
+
+        <div class="descripcion">
+            <label for="descripcion">Descripción de la tarea </label>
+        </div>
+
+        <div class="descripcionTexto">
+            <p>{{ tarea?.addDescripcion }}</p>
+        </div>
+
+    </div>
+
+    <div class="btnRegresar">
+        <button class="btn" routerLink="/list">Regresar</button>
+    </div>
+</div>

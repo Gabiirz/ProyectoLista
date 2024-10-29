@@ -16,7 +16,7 @@ export class DetailComponent {
   constructor(private route: ActivatedRoute, private taskService: TaskService){}
 
   ngOnInit(): void {
-    const id = +this.route.snapshot.paramMap.get('id')!; // Obtener el id de la URL
+    let id = +this.route.snapshot.paramMap.get('id')!; // Obtener el id de la URL
     this.tarea = this.taskService.getItemById(id); // Obtener el elemento
   }
 }

@@ -1,12 +1,22 @@
-<header>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
+<header>
     <div class="navegador">
-        
-        
-            <button (click)="navigateTo('list')">Lista tareas</button>
+        <div class="logo-container">
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40">
+                    <circle cx="12" cy="12" r="4" fill="black" />
+                    <path d="M12 0v4M12 20v4M4.22 4.22l2.83 2.83M16.97 16.97l2.83 2.83M0 12h4M20 12h4M4.22 19.78l2.83-2.83M16.97 7.03l2.83-2.83" stroke="black" stroke-width="2" />
+                </svg>
+            </div>
+        </div>
 
+        <div class="buttons">
+            <button (click)="navigateTo('list')">Lista tareas</button>
             <button (click)="navigateTo('add')">Añadir tarea</button>
-      
-    </div> 
-  
-<header>
+        </div>
+    </div>
+</header>

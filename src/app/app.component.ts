@@ -10,7 +10,7 @@ import { ListComponent } from './componentes/main/list/list.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterLink, RouterOutlet, HeaderComponent, MainComponent, AddComponent, ListComponent],
+  imports: [RouterLink, RouterOutlet, HeaderComponent, MainComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

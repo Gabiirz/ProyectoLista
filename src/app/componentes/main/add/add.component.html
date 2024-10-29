@@ -17,17 +17,23 @@
         </select>
     </div>
 
+
+
+    <div class="descripcionTarea">
+        <div class="descripcion">
+            <label for ="text">Descripción de la tarea </label>
+        </div>
+        <div class="descripcionTxtArea">
+            <textarea class="descripcionTxtAreaDentro"#addDescripcion></textarea>
+        </div>
+    </div>   
+    
     <div class="btnadd">
         <button class="btn"(click)="addTarea(addT.value, 
                                     addThorario.value, addDescripcion.value)">
                                             Añadir tarea
 
         </button>
-    </div>
-
-    <div class="descripcionTarea">
-        <label for="descripcion">Descripción de la tarea </label>
-        <textarea id="descripcion" #addDescripcion></textarea>
     </div>
 </div>
 
