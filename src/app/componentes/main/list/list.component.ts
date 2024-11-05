@@ -14,8 +14,7 @@ import { Router } from '@angular/router';
 export class ListComponent implements OnInit{
 
   tareas: {id: number, addT: string, addThorario: string, addDescripcion: string} []= [];
-
-  editingIndex: number | null = null;
+  tareaEditada: { id?: number, addT?: string, addThorario?: string, addDescripcion?: string } = {};  editingIndex: number | null = null;
   dialog: any;
 
   constructor(private taskService: TaskService, private router: Router){}
@@ -32,8 +31,6 @@ export class ListComponent implements OnInit{
   viewTarea(id: number){
     this.router.navigate(['/tarea', id]);
   }
-
-
 
 
 

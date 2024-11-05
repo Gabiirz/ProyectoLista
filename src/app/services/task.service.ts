@@ -33,6 +33,7 @@ export class TaskService {
     return this.tareas;
 
   }
+
   
   addTarea(addT: string, addThorario: string, addDescripcion: string){
     const newId = this.tareas.length > 0
