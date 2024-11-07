@@ -13,15 +13,16 @@
     display: flex;
     width: 100%;
     justify-content: space-evenly;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-
 }
+
 .detalleNombre{
     width: 50%;
 }
+
 .detalleHorario{
     width: 50%;
 }
+
 .detalleT{
     display: flex;
     justify-content: center;
@@ -29,15 +30,14 @@
 }
 
 .btn{
-    margin-top: 2%;
+    margin: 0% 0% 3% 0%;
     background: #B0D0D3;
     cursor: pointer;
     border-radius: 5%;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .btn:hover{
-    background: #496A81;
+    background: #496a81a8;
     cursor: pointer;
     padding: 0.2%;
     color: white;
@@ -46,17 +46,10 @@
 }
 
 .descripcion{
-    color: rgb(0, 0, 0);
     font-size: 120%;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .tituloDetalle{
     font-size: 150%;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-
 }
 
-.descripcionTexto{
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}

@@ -43,17 +43,18 @@ p:hover {
     width: 100%;
     align-items: center;
     gap: 2%;
-    margin: 2% auto; 
 }
 
 
 .tareasN{
-    width: 30%;
+    width: 21.5%;
     overflow: auto;
     margin-left: 2%;
+    text-align: center;
 }
 .horario{
-    width: 30%;
+    width: 21.5%;
+    text-align: center;
 }
 
 .btnDetalles{
@@ -71,6 +72,23 @@ p:hover {
 
 .btnDetail:hover{
     background: #496A81;
+}
+
+.btnEdit{
+    cursor: pointer;
+    color: #ffffff;
+    background: #188159;
+    border: none;
+    border-radius: 5%;
+    padding: 5%;
+}
+
+.btnEdit:hover{
+    background: #10573b;
+    transform: translateY(-2px); 
+}
+.btnEditar{
+    width: 13%;
 }
 
 

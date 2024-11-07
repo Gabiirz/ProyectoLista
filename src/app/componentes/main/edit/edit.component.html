@@ -1,23 +1,31 @@
-<div class="editar-lista">
+<div class="container">
     <h2>Editar</h2>
     <form (ngSubmit)="editTarea(addT.value, addTHorario.value, addDescricion.value)">
-      <div>
-        <label for="nombre">Nombre:</label>
+      <div class="nombreE">
+        <label for="nombre">Nombre</label>
         <input type="text" #addT [(ngModel)]="tarea.addT" name="addT" required />
       </div>
-      <div>
-        <label for="hora">Horario:</label>
-        <select #addTHorario [(ngModel)]="tarea.addThorario" name="addThorario" required>
-          <option *ngFor="let hora of Horario" [value]="hora">{{hora}}</option>
-        </select>
+
+      <div class="horarioE">
+        <label for="hora">Horario</label>
+        <div class="elegirHora">
+          <select #addTHorario [(ngModel)]="tarea.addThorario" name="addThorario" required>
+            <option *ngFor="let hora of Horario" [value]="hora">{{hora}}</option>
+          </select>
+        </div>
       </div>
   
-      <div>
-        <label for="descripcion">Descripción:</label>
+      <div class="descripcionC">
+        <div class="labelDescripcion">
+          <label for="descripcion">Descripción</label>
+        </div>
         <input type="text" #addDescricion [(ngModel)]="tarea.addDescripcion" name="addDescripcion" required />
       </div>
-  
-      <button type="submit">Editar</button>
+
+      <div class="btnEditar">
+        <button class="editarbutton" type="submit">Editar</button>
+      </div>
+
     </form>
   </div>
   

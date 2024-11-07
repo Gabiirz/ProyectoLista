@@ -1,0 +1,38 @@
+
+.container {
+    padding: 2%;
+    width: 50vh;
+    background: rgba(187, 245, 245, 0.226); 
+    border-radius: 8px; 
+    box-shadow: 0 2px 10px 0px rgba(0, 0, 0, 0.1); 
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}   
+
+.btnEditar{
+    text-align: center;
+}
+
+input{
+    display: flex;
+}
+
+.descripcionC{
+    margin: 15% 0 15% 0;
+}
+
+.horarioE{
+    margin: 15% 0 15% 0;  
+}
+
+.nombreE{
+    margin: 0% 0 15% 0;
+}
+
+.elegirHora{
+    margin-top: 2%;
+}

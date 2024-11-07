@@ -38,7 +38,7 @@
 }
 
 .descripcionTarea{
-    margin: 2%;
+    margin: 6% 0 6% 0;
 }
 
 .descripcion{
@@ -52,13 +52,14 @@
 .box-nombre{
     display: flex;
     justify-content: center;
-    margin: 0px 0px 1% 0px;
+    margin: 10px 0px 6% 0px;
 }
 
 .descripcionTxtAreaDentro{
     width: 270px;
     height: 19px;
     resize: none;
+    margin-top: 2%;
 }
 
 .selecioHorario{
