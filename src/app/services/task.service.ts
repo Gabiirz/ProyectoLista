@@ -52,6 +52,23 @@ export class TaskService {
     this.tareas.splice(index, 1);
     this.saveToLocalStorage();
   }
+
+  editTarea(id: number, addT: string, addThorario: string, addDescripcion: string){
+
+      const indice = this.tareas.findIndex(tarea => tarea.id === id);
+      if(indice !== -1){
+        this.tareas[indice] ={
+          ...this.tareas[indice],
+          addT,
+          addThorario,
+          addDescripcion,
+        };
+      this.saveToLocalStorage();
+      }
+    }
+   
+  
+  
   
   // Método para guardar la lista de Digimon en localStorage como un string JSON.
   private saveToLocalStorage() {

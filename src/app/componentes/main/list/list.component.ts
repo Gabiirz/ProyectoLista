@@ -23,7 +23,7 @@ export class ListComponent implements OnInit{
     this.tareas = this.taskService.getTareas();
   }
 
-
+ 
   deleteTareas(index: number){
     this.taskService.deleteTarea(index);
   }
@@ -32,6 +32,9 @@ export class ListComponent implements OnInit{
     this.router.navigate(['/tarea', id]);
   }
 
-
+  editarTarea(id: number) {
+    this.router.navigate(['/edit', id]);
+  }
+  
 
 }
