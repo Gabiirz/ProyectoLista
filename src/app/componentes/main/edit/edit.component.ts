@@ -12,7 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./edit.component.css']
 })
 export class EditComponent implements OnInit {  
-  tarea: {id: number, addT: string, addThorario: string, addDescripcion: string} = {id: -1, addT: "limpiez", addThorario: "10:00", addDescripcion: "gaa"};
+  tarea: {id: number, addT: string, addThorario: string, addDescripcion: string} = {id: -1, addT: "Sustituir", addThorario: "10:00", addDescripcion: "tareaSustituida"};
   Horario: string[] = ['10:00','13:00','17:00', '19:00', '21:00'];
 
   constructor(private taskService: TaskService, private router: Router, private route: ActivatedRoute) {}

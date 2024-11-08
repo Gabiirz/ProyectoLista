@@ -17,6 +17,19 @@
     text-align: center;
 }
 
+.editarbutton{
+    padding: 3%;
+    color: rgb(255, 255, 255);
+    background: #188159;    
+    border: none;
+    border-radius: 5%;
+}
+
+.editarbutton:hover{
+    background: #10573b;
+    transform: translateY(-2.5px); 
+}
+
 input{
     display: flex;
 }
@@ -35,4 +48,19 @@ input{
 
 .elegirHora{
     margin-top: 2%;
+}
+
+.horaCSS{
+    background: #B0D0D3;
+    border: none;
+    border-radius: 5%;
+    padding: 2%;
+    cursor: pointer;
+}
+.horaCSS:hover{
+    background: #2c5a6cc2;
+}
+
+label{
+    margin-bottom: 1.5%;
 }

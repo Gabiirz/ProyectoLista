@@ -31,18 +31,17 @@
 
 .btn{
     margin: 0% 0% 3% 0%;
-    background: #B0D0D3;
+    background: #4867c3;
     cursor: pointer;
     border-radius: 5%;
+    border: none;
+    padding: 1.5%;
 }
 
 .btn:hover{
-    background: #496a81a8;
+    background: #2d3a75;
     cursor: pointer;
-    padding: 0.2%;
     color: white;
-    border-radius: 5%;
-
 }
 
 .descripcion{

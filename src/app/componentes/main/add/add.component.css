@@ -69,9 +69,12 @@
 
 .selecHorario {
     background: #B0D0D3;
+    border: none;
+    padding: 1.5%;
+    border-radius: 4%;
+    cursor: pointer;
 }
 
 .selecHorario:hover{
-    background: #496A81;
-
+    background: #2c5a6cc2;
 }

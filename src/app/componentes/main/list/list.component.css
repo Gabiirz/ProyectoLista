@@ -1,8 +1,9 @@
 
 .vacio {
     text-align: center; 
-    color: #666; 
+    color: #000000; 
     font-style: italic; 
+
 }
 
 .container {
@@ -13,12 +14,10 @@
     border-radius: 8px; 
     box-shadow: 0 2px 10px 0px rgba(0, 0, 0, 0.1); 
     backdrop-filter: blur(10px);
+    max-height: 600px;
+    overflow-y:auto;
 }   
 
-
-p:hover {
-    background-color: rgba(68, 0, 253, 0.1); 
-}
 
 .btnEliminate {
     padding: 5px; 
@@ -27,7 +26,7 @@ p:hover {
     border-radius: 4px; 
     border: none;
     cursor: pointer; 
-  
+
 }
 
 .btnEliminate:hover {
@@ -47,18 +46,20 @@ p:hover {
 
 
 .tareasN{
-    width: 21.5%;
+    width: 19%;
     overflow: auto;
     margin-left: 2%;
     text-align: center;
 }
 .horario{
-    width: 21.5%;
+    width: 19%;
     text-align: center;
 }
 
 .btnDetalles{
     width: 13%;
+    display: flex;
+    justify-content: center;
 }
 .btnELiminar{
     width: 13%;
@@ -66,12 +67,17 @@ p:hover {
 }
 
 .btnDetail{
-    background: #B0D0D3;
+    color: #ffffff;
+    background: #809799;
     cursor: pointer;
+    border: none;
+    padding: 5%;
+    border-radius: 5%;
 }
 
 .btnDetail:hover{
-    background: #496A81;
+    background: #3e4a4d;
+    transform: translateY(-3px); 
 }
 
 .btnEdit{
@@ -81,6 +87,7 @@ p:hover {
     border: none;
     border-radius: 5%;
     padding: 5%;
+
 }
 
 .btnEdit:hover{
@@ -88,9 +95,15 @@ p:hover {
     transform: translateY(-2px); 
 }
 .btnEditar{
-    width: 13%;
-}
+    width: 13%;    
+    display: flex;
+    justify-content: center;
 
+}
+.btnELiminar{
+    display: flex;
+    justify-content: center;
+}
 
 
 
