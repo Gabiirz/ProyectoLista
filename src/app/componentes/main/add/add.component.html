@@ -1,35 +1,41 @@
 <div class="container">
+    <form [formGroup]="form" (submit)="send()">
 
-    <div class="titulo">
-        <h3 class="tituloadd">Añadir tarea</h3>
-    </div>
-
-    <div class="box-nombre">
-        <input #addT placeholder="Name" />
-    </div>
-
-    <div class="selecioHorario">
-        <select class="selecHorario" #addThorario>
-            <option *ngFor="let type of Horario" [value]="type">{{type}}</option>
-        </select>
-    </div>
-
-
-
-    <div class="descripcionTarea">
-        <div class="descripcion">
-            <label for="text">Descripción de la tarea </label>
+        <div class="titulo">
+            <h3 class="tituloadd">Añadir tarea</h3>
         </div>
-        <div class="descripcionTxtArea">
-            <textarea class="descripcionTxtAreaDentro" #addDescripcion></textarea>
+
+        <div class="box-nombre">
+            <input #addT placeholder="Name" formControlName="nombre"/>
         </div>
-    </div>
 
-    <div class="btnadd">
-        <button class="btn" (click)="addTarea(addT.value, 
-                                    addThorario.value, addDescripcion.value)">
-            Añadir tarea
+        <div class="selecioHorario">
+            <select class="selecHorario" #addThorario formControlName="horario">
+                <option *ngFor="let type of Horario" [value]="type">{{type}}</option>
+            </select>
+        </div>
 
-        </button>
-    </div>
+
+
+        <div class="descripcionTarea">
+            <div class="descripcion">
+                <label for="text">Descripción de la tarea </label>
+            </div>
+            <div class="descripcionTxtArea">
+                <textarea class="descripcionTxtAreaDentro" #addDescripcion formControlName="descripcion"></textarea>
+            </div>
+        </div>
+
+        <div class="btnadd">
+            <button [disabled]="form.invalid" class="btn" (click)="addTarea(addT.value, 
+                                        addThorario.value, addDescripcion.value)">
+                Añadir tarea
+
+            </button>
+        </div>
+
+        <div>
+            Valido:{{form.valid | json}}
+        </div>
+    </form>
 </div>
