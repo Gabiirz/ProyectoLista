@@ -1,15 +1,17 @@
 <div class="container">
   <h2>Editar</h2>
-  <form (ngSubmit)="editTarea(addT.value, addTHorario.value, addDescricion.value)">
+  
+  <form [formGroup]="form" (submit)="editTarea()">
+
     <div class="nombreE">
       <label for="nombre">Nombre</label>
-      <input type="text" #addT [(ngModel)]="tarea.addT" name="addT" required />
+      <input type="text" #addT name="addT" placeholder="Name" formControlName="nombre"required />
     </div>
 
     <div class="horarioE">
       <label for="hora">Horario</label>
       <div class="elegirHora">
-        <select class="horaCSS" #addTHorario [(ngModel)]="tarea.addThorario" name="addThorario" required>
+        <select class="horaCSS" #addTHorario name="addThorario" formControlName="horario" required>
           <option *ngFor="let hora of Horario" [value]="hora">{{hora}}</option>
         </select>
       </div>
@@ -19,12 +21,18 @@
       <div class="labelDescripcion">
         <label for="descripcion">Descripción</label>
       </div>
-      <input type="text" #addDescricion [(ngModel)]="tarea.addDescripcion" name="addDescripcion" required />
+      <input type="text" #addDescricion name="addDescripcion" formControlName="descripcion" required />
     </div>
 
     <div class="btnEditar">
-      <button class="editarbutton" type="submit">Editar</button>
+      <button [disabled]="form.invalid" class="editarbutton" type="submit">
+          Editar
+      </button>
     </div>
+    
+    <div>
+      Valido:{{form.valid | json}}
+     </div>
 
   </form>
 </div>

@@ -16,8 +16,8 @@ export class AddComponent {
   constructor(private taskService: TaskService, private formBuilder: FormBuilder) { }
 
 
-  addTarea(addT: string, addThorario: string, addDescripcion: string) {
-    this.taskService.addTarea(addT, addThorario, addDescripcion);
+  addTarea() {
+    this.taskService.addTarea(this.form.value);
   }
 
   title = 'formulario';

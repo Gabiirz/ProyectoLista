@@ -1,5 +1,5 @@
 <div class="container">
-    <form [formGroup]="form" (submit)="send()">
+    <form [formGroup]="form" (submit)="addTarea()">
 
         <div class="titulo">
             <h3 class="tituloadd">Añadir tarea</h3>
@@ -27,8 +27,7 @@
         </div>
 
         <div class="btnadd">
-            <button [disabled]="form.invalid" class="btn" (click)="addTarea(addT.value, 
-                                        addThorario.value, addDescripcion.value)">
+            <button [disabled]="form.invalid" class="btn">
                 Añadir tarea
 
             </button>
