@@ -1,40 +1,44 @@
 <div class="container">
-    <form [formGroup]="form" (submit)="addTarea()">
-
-        <div class="titulo">
-            <h3 class="tituloadd">Añadir tarea</h3>
+    <form [formGroup]="form" (ngSubmit)="addTarea()">
+      <div class="titulo">
+        <h3 class="tituloadd">Añadir tarea</h3>
+      </div>
+  
+      <div class="box-nombre">
+        <label for="titulo">Título</label>
+        <input id="titulo" placeholder="Título" formControlName="titulo"/>
+        <div *ngIf="form.get('titulo')?.invalid && form.get('titulo')?.touched">
+          <!-- Mensajes de error si es necesario -->
         </div>
-
-        <div class="box-nombre">
-            <input #addT placeholder="Name" formControlName="nombre"/>
+      </div>
+  
+      <div class="selecioHorario">
+        <label for="hora">Horario</label>
+        <select id="hora" formControlName="hora">
+          <option *ngFor="let time of Horario" [value]="time">{{time}}</option>
+        </select>
+        <div *ngIf="form.get('hora')?.invalid && form.get('hora')?.touched">
+          <small *ngIf="form.get('hora')?.hasError('required')">El horario es obligatorio.</small>
         </div>
-
-        <div class="selecioHorario">
-            <select class="selecHorario" #addThorario formControlName="horario">
-                <option *ngFor="let type of Horario" [value]="type">{{type}}</option>
-            </select>
+      </div>
+  
+      <div class="descripcionTarea">
+        <label for="descripcion">Descripción de la tarea</label>
+        <textarea id="descripcion" formControlName="descripcion"></textarea>
+        <div *ngIf="form.get('descripcion')?.invalid && form.get('descripcion')?.touched">
+          <!-- Mensajes de error si es necesario -->
         </div>
-
-
-
-        <div class="descripcionTarea">
-            <div class="descripcion">
-                <label for="text">Descripción de la tarea </label>
-            </div>
-            <div class="descripcionTxtArea">
-                <textarea class="descripcionTxtAreaDentro" #addDescripcion formControlName="descripcion"></textarea>
-            </div>
-        </div>
-
-        <div class="btnadd">
-            <button [disabled]="form.invalid" class="btn">
-                Añadir tarea
-
-            </button>
-        </div>
-
-        <div>
-            Valido:{{form.valid | json}}
-        </div>
+      </div>
+  
+      <div class="btnadd">
+        <button [disabled]="form.invalid" class="btn">
+          Añadir tarea
+        </button>
+      </div>
+  
+      <div>
+        Valido: {{ form.valid | json }}
+      </div>
     </form>
-</div>
+  </div>
+  

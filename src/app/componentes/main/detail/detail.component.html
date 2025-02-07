@@ -1,33 +1,30 @@
 <div class="container">
-    <div class="titulo">
-        <h3 class="tituloDetalle">DETALLES</h3>
-    </div>
-
-    <div class="tareaNyH">
-        <div class="detalleNombre">
-            <h4>Tarea - {{ tarea?.addT }}</h4>
+    <form [formGroup]="form">
+        <div class="titulo">
+            <h3 class="tituloadd">Detalles de la Tarea</h3>
         </div>
 
-        <div class="detalleHorario">
-            <h4>Horario - {{ tarea?.addThorario }}</h4>
-        </div>
-    </div>
-
-    <div class="detalleT">
-
-        <div class="descripcion">
-            <label for="descripcion">Descripción de la tarea </label>
+        <!-- Campo Nombre -->
+        <div class="box-nombre">
+            <input placeholder="Nombre" formControlName="titulo" readonly />
         </div>
 
-        <div class="descripcionTexto">
-            <p>{{ tarea?.addDescripcion }}</p>
+        <!-- Selección de Horario -->
+        <div class="selecioHorario">
+            <select class="selecHorario" formControlName="hora" [disabled]="true">
+                <option *ngFor="let type of tarea?.Horario" [value]="type">{{type}}</option>
+            </select>
         </div>
 
-    </div>
-
-    <div class="btnRegresar">
-        <button class="btn" routerLink="/list">Regresar</button>
-    </div>
-
-
+        <!-- Descripción de la Tarea -->
+        <div class="descripcionTarea">
+            <div class="descripcion">
+                <label for="text">Descripción de la tarea</label>
+            </div>
+            <div class="descripcionTxtArea">
+                <textarea class="descripcionTxtAreaDentro" formControlName="descripcion" readonly></textarea>
+            </div>
+        </div>
+    </form>
 </div>
+

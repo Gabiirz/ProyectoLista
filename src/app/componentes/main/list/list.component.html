@@ -7,25 +7,25 @@
                 let i = index">
 
         <div class="tareasN">
-            <p>{{tarea.addT}}</p>
+            <p>{{tarea.titulo}}</p>
         </div>
 
         <div class="horario">
-            <p>Hora: {{tarea.addThorario}}</p>
+            <p>Hora: {{tarea.hora}}</p>
         </div>
 
 
         <div class="btnDetalles">
-            <button class="btnDetail" (click)="viewTarea(tarea.id)">Ver tarea</button>
+            <button class="btnDetail" (click)="viewTarea(tarea.idtarea)">Ver tarea</button>
         </div>
 
 
         <div class="btnEditar">
-            <button class="btnEdit" (click)="editarTarea(tarea.id)">Editar</button>
+            <button class="btnEdit" (click)="editarTarea(tarea.idtarea)">Editar</button>
         </div>
 
         <div class="btnELiminar">
-            <button class="btnEliminate" (click)="deleteTareas(i)">Eliminar</button>
+            <button class="btnEliminate" (click)="deleteTarea(tarea.idtarea)">Eliminar</button>
         </div>
 
     </div>

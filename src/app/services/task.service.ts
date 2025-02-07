@@ -1,40 +1,41 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Tarea } from '../Interfaz/tareas';  // Importamos la interfaz
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TaskService {
 
-  private baseUrl = 'https://c74f4156107e.ngrok.app/api/nombre_usuario/nombre_api.php?table=tareas';
+  private baseUrl = 'https://c74f4156107e.ngrok.app/api/gabriel/tareas.php?table=tarea';
 
   constructor(private http: HttpClient) { }
 
-  // Get all tasks
-  getTareas(): Observable<any> {
-    return this.http.get(`${this.baseUrl}`);
+  // Obtener todas las tareas
+  getTareas(): Observable<Tarea[]> {
+    return this.http.get<Tarea[]>(`${this.baseUrl}`);
   }
-
-  // Get task by ID
-  getItemById(id: number): Observable<any> {
-    return this.http.get(`${this.baseUrl}&id=${id}`);
-  }
-
-  // Add new task
-  addTarea(tarea:any): Observable<any> {
+  // Obtener tarea por ID
+  getItemById(id: number): Observable<Tarea> {
+    return this.http.get<Tarea>(`${this.baseUrl}&id=${id}`);
+  }  
+  // Agregar nueva tarea
+  addTarea(tarea: Tarea): Observable<Tarea> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.post(`${this.baseUrl}`, tarea, { headers });
+    console.log('Datos enviados:', tarea); // Asegúrate de que los datos estén bien formateados
+    return this.http.post<Tarea>(`${this.baseUrl}`, tarea, { headers });
   }
+  
 
-  // Delete task by ID
-  deleteTarea(id: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}&id=${id}`);
+  // Eliminar tarea por ID
+  deleteTarea(id: number): Observable<Tarea> {
+    return this.http.delete<Tarea>(`${this.baseUrl}&id=${id}`);
   }
-
-  // Edit task by ID
-  editTarea(tarea:any): Observable<any> {
+  
+  // Edtar tarea por ID
+  editTarea(id: number, tarea: Tarea): Observable<Tarea> {  // Añadir el parámetro id y corregir el tipo
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.put(`${this.baseUrl}&id=${id}`, tarea, { headers });
+    return this.http.put<Tarea>(`${this.baseUrl}&id=${id}`, tarea, { headers });
   }
 }

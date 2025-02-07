@@ -1,17 +1,16 @@
 <div class="container">
   <h2>Editar</h2>
   
-  <form [formGroup]="form" (submit)="editTarea()">
-
+  <form [formGroup]="form" (ngSubmit)="editTarea()">
     <div class="nombreE">
       <label for="nombre">Nombre</label>
-      <input type="text" #addT name="addT" placeholder="Name" formControlName="nombre"required />
+      <input type="text" id="nombre" placeholder="Nombre" formControlName="nombre" required />
     </div>
 
     <div class="horarioE">
-      <label for="hora">Horario</label>
+      <label for="horario">Horario</label>
       <div class="elegirHora">
-        <select class="horaCSS" #addTHorario name="addThorario" formControlName="horario" required>
+        <select id="horario" formControlName="horario" required>
           <option *ngFor="let hora of Horario" [value]="hora">{{hora}}</option>
         </select>
       </div>
@@ -21,18 +20,18 @@
       <div class="labelDescripcion">
         <label for="descripcion">Descripción</label>
       </div>
-      <input type="text" #addDescricion name="addDescripcion" formControlName="descripcion" required />
+      <input type="text" id="descripcion" formControlName="descripcion" required />
     </div>
 
     <div class="btnEditar">
       <button [disabled]="form.invalid" class="editarbutton" type="submit">
-          Editar
+        Editar
       </button>
     </div>
-    
-    <div>
-      Valido:{{form.valid | json}}
-     </div>
+
+    <div *ngIf="form.invalid && form.touched" class="error-message">
+      <p>Por favor, completa todos los campos correctamente.</p>
+    </div>
 
   </form>
 </div>

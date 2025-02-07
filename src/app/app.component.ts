@@ -15,4 +15,6 @@ import { FooterComponent } from './componentes/footer/footer.component';
 })
 export class AppComponent {
   title = 'gestor-tareas';
+
+  
 }
