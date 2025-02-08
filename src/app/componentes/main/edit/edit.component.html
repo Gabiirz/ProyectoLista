@@ -4,13 +4,13 @@
   <form [formGroup]="form" (ngSubmit)="editTarea()">
     <div class="nombreE">
       <label for="nombre">Nombre</label>
-      <input type="text" id="nombre" placeholder="Nombre" formControlName="nombre" required />
+      <input type="text" id="nombre" placeholder="titulo" formControlName="titulo" required />
     </div>
 
     <div class="horarioE">
       <label for="horario">Horario</label>
       <div class="elegirHora">
-        <select id="horario" formControlName="horario" required>
+        <select id="horario" formControlName="hora" required>
           <option *ngFor="let hora of Horario" [value]="hora">{{hora}}</option>
         </select>
       </div>

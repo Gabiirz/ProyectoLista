@@ -1,0 +1,40 @@
+<div class="container">
+  <h2>Gestión de Usuarios</h2>
+  
+  <!-- Formulario para agregar/editar usuario -->
+  <form [formGroup]="usuarioForm" (ngSubmit)="selectedUsuario ? updateUsuario() : addUsuario()">
+    <div>
+      <input id="nombre" type="text" formControlName="nombre" placeholder="Nombre" />
+    </div>
+    <div>
+      <input id="contrasena" type="password" formControlName="contrasena" placeholder="Contraseña" />
+    </div>
+    <div>
+     
+      <input id="rol" type="text" formControlName="rol" placeholder="Rol" />
+    </div>
+    <!-- Botón de enviar (Actualizar o Agregar) -->
+    <button type="submit">{{ selectedUsuario ? 'Actualizar' : 'Agregar' }} Usuario</button>
+    <!-- Botón Cancelar, se muestra solo si se está editando (selectedUsuario existe) -->
+    <button type="button" *ngIf="selectedUsuario" (click)="cancelUpdate()">Cancelar</button>
+  </form>
+  
+  <hr />
+  
+  <!-- Lista de usuarios -->
+  <div *ngIf="usuarios.length > 0">
+    <h3>Lista de Usuarios</h3>
+    <ul>
+      <li *ngFor="let usuario of usuarios">
+        <div class="listado">
+          <span><strong>{{ usuario.nombre }}</strong> ({{ usuario.rol }})</span>
+          <div>
+            <button class="btnEdit" (click)="selectUsuario(usuario)">Editar</button>
+            <button class="btnEliminate" (click)="deleteUsuario(usuario.idusuario)">Eliminar</button>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+

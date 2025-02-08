@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { TaskService } from '../../../services/task.service';
+import { TaskService } from '../../../tareaServicio/tarea.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -37,14 +37,13 @@ export class ListComponent implements OnInit {
   }
 
   deleteTarea(id: number): void {
-    // Eliminar tarea
     this.taskService.deleteTarea(id).subscribe({
-      next: () => {
-        // Elimina la tarea de la lista sin recargar
-        this.tareas = this.tareas.filter(t => t.id !== id);
+      next: (tareaEliminada) => {
+        // Si en tu modelo la propiedad identificadora es 'idtarea'
+        this.tareas = this.tareas.filter(t => t.idtarea !== id);
       },
       error: (err) => {
-        console.error('Error al eliminar tarea:', err); // Manejo de error al eliminar
+        console.error('Error al eliminar tarea:', err);
       }
     });
   }

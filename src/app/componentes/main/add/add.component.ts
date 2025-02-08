@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { TaskService } from '../../../services/task.service';
+import { TaskService } from '../../../tareaServicio/tarea.service';
 import { FormBuilder, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Tarea } from '../../../Interfaz/tareas';
 
 @Component({
   selector: 'app-add',
@@ -28,7 +29,7 @@ export class AddComponent implements OnInit {
       titulo: [
         '', 
         [
-          Validators.maxLength(10), 
+          Validators.maxLength(10),  // Máximo 10 caracteres
           Validators.required
         ]
       ],
@@ -36,7 +37,7 @@ export class AddComponent implements OnInit {
       descripcion: [
         '', 
         [
-          Validators.minLength(20),
+          Validators.minLength(20),  // Mínimo 20 caracteres
           Validators.required
         ]
       ]
@@ -46,10 +47,23 @@ export class AddComponent implements OnInit {
   // Función para enviar los datos del formulario y agregar la tarea
   addTarea(): void {
     if (this.form.valid) {
-      this.taskService.addTarea(this.form.value).subscribe({
+      // Suponiendo que tienes la fecha actual o una fecha seleccionada
+      const fecha = new Date().toISOString().split('T')[0]; // "YYYY-MM-DD"
+      const horaFormateada = `${fecha} ${this.form.value.hora}:00`; // "YYYY-MM-DD 13:00:00"
+      
+      const tarea: Tarea = {
+        ...this.form.value,
+        hora: horaFormateada, // Reemplaza el valor '13:00' por el timestamp completo
+        usuario_id: 1,
+        comentario_id: 1,
+        tipotarea_id: 1,
+        etiqueta_id: 1
+      };
+  
+      this.taskService.addTarea(tarea).subscribe({
         next: (data) => {
           console.log('Tarea agregada:', data);
-          this.router.navigate(['/list']); // Redirigir a la lista de tareas
+          this.router.navigate(['/list']);
         },
         error: (err) => {
           console.error('Error al agregar tarea:', err);
@@ -62,6 +76,7 @@ export class AddComponent implements OnInit {
     }
   }
   
+
 
   // Para ver los valores del formulario en consola (puedes quitar esta parte si no la necesitas)
   send(): void {
