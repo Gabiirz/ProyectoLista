@@ -1,80 +1,130 @@
-.container {
+/* ============================= */
+/* RESET Y CONFIGURACIONES BASE */
+/* ============================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* ============================= */
+  /* CONTENEDOR PRINCIPAL */
+  /* ============================= */
+  .container {
     width: 50vh;
     padding: 2%;
-    margin: 0% auto;  
-    background: rgba(187, 245, 245, 0.356); 
-    border-radius: 8px; 
-    box-shadow: 0 2px 10px 0px rgba(0, 0, 0, 0.1);
-    display: block;
-    justify-content: center;
-    align-items: center;
+    margin: 2rem auto;
+    background: rgba(187, 245, 245, 0.356);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
-}
-
-
-.titulo{
-    text-align: center;
-}
-
-
-.btnadd {
-    text-align: center; 
-}
-
-.btn {
-    cursor: pointer; 
-    background-color: #5171A5; 
-    color: white; 
-    border: none; 
-    padding: 1.5%; 
-    border-radius: 4px; 
-    transition: background 0.3s; 
-    margin-bottom: 1.5%;
-}
-
-.btn:hover {
-    background-color: #0056b3; 
-    transform: translateY(-2px); 
-}
-
-.descripcionTarea{
-    margin: 6% 0 6% 0;
-}
-
-.descripcion{
-    text-align: center;
-}
-.descripcionTxtArea{
+  }
+  
+  /* ============================= */
+  /* FORMULARIO */
+  /* ============================= */
+  form {
     display: flex;
-    justify-content: center;
-}
-
-.box-nombre{
-    display: flex;
-    justify-content: center;
-    margin: 10px 0px 6% 0px;
-}
-
-.descripcionTxtAreaDentro{
-    width: 270px;
-    height: 19px;
-    resize: none;
-    margin-top: 2%;
-}
-
-.selecioHorario{
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  /* Título del formulario */
+  .titulo {
     text-align: center;
-    
-}
-
-.selecHorario {
-    background: #B0D0D3;
-    border: none;
-    padding: 1.5%;
-    border-radius: 4%;
+  }
+  .tituloadd {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #000000;
+  }
+  
+  /* ============================= */
+  /* GRUPOS DE CAMPOS */
+  /* ============================= */
+  .box-nombre,
+  .selecioHorario,
+  .descripcionTarea {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Etiquetas */
+  label {
+    font-size: 1rem;
+    color: #000000;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* ============================= */
+  /* INPUTS, SELECT Y TEXTAREA */
+  /* ============================= */
+  input[type="text"],
+  select,
+  textarea {
+    width: 100%;
+    max-width: 90%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+  }
+  
+  input[type="text"]:focus,
+  select:focus,
+  textarea:focus {
+    outline: none;
+    border-color: #5171A5;
+  }
+  
+  /* Textarea: Permitir redimensionar verticalmente */
+  textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  
+  /* ============================= */
+  /* BOTÓN */
+  /* ============================= */
+  .btnadd {
+    text-align: center;
+    margin-top: 1rem;
+  }
+  
+  .btn {
     cursor: pointer;
-}
+    background-color: #5171A5;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .btn:disabled {
+    background-color: #a0a0a0;
+    cursor: not-allowed;
+  }
+  
+  .btn:hover:not(:disabled) {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+  }
+  
+  /* ============================= */
+  /* MENSAJES DE ERROR (SI LOS HAY) */
+  /* ============================= */
 
-.selecHorario:hover{
-    background: #2c5a6cc2;
-}
+  /* ============================= */
+  /* INFO DE VALIDACIÓN (DEBUG) */
+  /* ============================= */
+  form > div:last-child {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 1rem;
+  }
+  

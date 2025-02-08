@@ -6,7 +6,7 @@
   
       <div class="box-nombre">
         <label for="titulo">Título</label>
-        <input id="titulo" placeholder="Título" formControlName="titulo"/>
+        <input id="titulo" formControlName="titulo"/>
         <div *ngIf="form.get('titulo')?.invalid && form.get('titulo')?.touched">
           <!-- Mensajes de error si es necesario -->
         </div>
@@ -36,9 +36,6 @@
         </button>
       </div>
   
-      <div>
-        Valido: {{ form.valid | json }}
-      </div>
     </form>
   </div>
   

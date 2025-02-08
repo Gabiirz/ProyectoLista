@@ -45,12 +45,26 @@
 }
 
 
-.tareasN{
-    width: 19%;
+.tareasN {
+    width: 25%;                /* Aumenta un poco el ancho para mayor visibilidad */
     overflow: auto;
-    margin-left: 2%;
+   
     text-align: center;
-}
+    padding: 0.1rem;             /* Agrega espacio interno */
+    background: #eeeeee62;       /* Fondo blanco para contraste */
+    border: 1px solid #cccccc1c;    /* Borde sutil */
+    border-radius: 3px;        /* Bordes redondeados */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.055);  /* Sombra para dar profundidad */
+    font-size: 1.1rem;         /* Texto un poco más grande */
+    color: #000000;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;  /* Transiciones suaves */
+  }
+  
+  .tareasN:hover {
+    transform: translateY(-3px);      /* Efecto de elevación al pasar el mouse */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.123);  /* Sombra más intensa en hover */
+  }
+  
 .horario{
     width: 19%;
     text-align: center;

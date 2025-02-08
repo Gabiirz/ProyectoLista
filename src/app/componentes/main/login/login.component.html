@@ -27,8 +27,10 @@
     <ul>
       <li *ngFor="let usuario of usuarios">
         <div class="listado">
+         
           <span><strong>{{ usuario.nombre }}</strong> ({{ usuario.rol }})</span>
-          <div>
+          <div class="user-buttons">
+
             <button class="btnEdit" (click)="selectUsuario(usuario)">Editar</button>
             <button class="btnEliminate" (click)="deleteUsuario(usuario.idusuario)">Eliminar</button>
           </div>

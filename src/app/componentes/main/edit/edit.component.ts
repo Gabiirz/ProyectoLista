@@ -25,24 +25,32 @@ export class EditComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // Inicializa el formulario con los nombres que la API espera: titulo, hora y descripcion.
+    // Inicializa el formulario
     this.form = this.formBuilder.group({
       titulo: ['', [Validators.required, Validators.maxLength(10)]],
       hora: ['', Validators.required],
       descripcion: ['', [Validators.required, Validators.minLength(20)]]
     });
-
-    // Obtener el ID de la tarea desde los parámetros de la ruta
+  
+    // Obtener el ID desde la ruta
     const id = Number(this.route.snapshot.paramMap.get('id'));
     if (id) {
-      // Cargar la tarea existente
       this.taskService.getItemById(id).subscribe({
         next: (data: Tarea) => {
+          console.log('Valor original de hora:', data.hora);
           this.tarea = data;
-          // Actualiza el formulario con los datos existentes
+          let horaSolo = data.hora;
+          // Si data.hora contiene un espacio, extrae la parte de la hora
+          if (data.hora && data.hora.includes(' ')) {
+            const partes = data.hora.split(' ');
+            if (partes.length > 1) {
+              horaSolo = partes[1].substring(0, 5);
+            }
+          }
+          console.log('Hora extraída:', horaSolo);
           this.form.patchValue({
             titulo: data.titulo,
-            hora: data.hora,
+            hora: horaSolo,
             descripcion: data.descripcion
           });
         },
@@ -52,6 +60,7 @@ export class EditComponent implements OnInit {
       });
     }
   }
+  
 
   // Método para enviar el formulario y editar la tarea
   editTarea(): void {

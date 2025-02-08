@@ -46,7 +46,7 @@ export class DetailComponent implements OnInit {
           // Actualizar el formulario con los valores de la tarea, usando el campo "hora" con la fecha añadida
           this.form.patchValue({
             titulo: this.tarea.titulo || '',
-            hora: horaConDia,
+            hora: this.tarea.hora,
             descripcion: this.tarea.descripcion || ''
           });
         }
