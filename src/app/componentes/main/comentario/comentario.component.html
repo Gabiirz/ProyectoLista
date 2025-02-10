@@ -1,0 +1,11 @@
+<div class="comment-form" [formGroup]="form">
+    <textarea formControlName="texto" placeholder="Comentario"></textarea>
+    <input type="password" formControlName="password" placeholder="Contraseña" />
+    <div class="buttons">
+      <button type="button" (click)="submitComment()">
+        {{ initialComment ? 'Actualizar Comentario' : 'Guardar Comentario' }}
+      </button>
+      <button type="button" *ngIf="initialComment" (click)="deleteComment()">Eliminar Comentario</button>
+    </div>
+  </div>
+  

@@ -1,24 +1,33 @@
 <div class="container">
-    <h2>Detalle de la Tarea</h2>
-    <form [formGroup]="form">
-      <!-- Campo Título -->
-      <div class="form-group">
-        <label for="titulo">Título</label>
-        <input type="text" id="titulo" formControlName="titulo" placeholder="Título" />
-      </div>
-      
-      <!-- Campo Hora (Fecha + Hora) -->
-      <div class="form-group">
-        <label for="hora">Dia Y Hora</label>
-        <input type="text" id="" formControlName="hora" placeholder="Fecha y hora" />
-      </div>
-      
-      <!-- Campo Descripción -->
-      <div class="form-group">
-        <label for="descripcion">Descripción</label>
-        <textarea id="descripcion" formControlName="descripcion" placeholder="Descripción"></textarea>
-      </div>
-    </form>
-  </div>
+  <h2>Detalle de la Tarea</h2>
+  <form [formGroup]="form">
+    <!-- Campo Título -->
+    <div class="form-group">
+      <label for="titulo">Título</label>
+      <input type="text" id="titulo" formControlName="titulo" placeholder="Título" />
+    </div>
+    
+    <!-- Campo Día y Hora -->
+    <div class="form-group">
+      <label for="hora">Día y Hora</label>
+      <input type="text" id="hora" formControlName="hora" placeholder="Fecha y hora" />
+    </div>
+    
+    <!-- Campo Encargado -->
+    <div class="form-group">
+      <label for="encargado">Encargado</label>
+      <input type="text" id="encargado" formControlName="encargado" placeholder="Encargado" />
+    </div>
+    
+    <!-- Campo Descripción -->
+    <div class="form-group">
+      <label for="descripcion">Descripción</label>
+      <textarea id="descripcion" formControlName="descripcion" placeholder="Descripción"></textarea>
+    </div>
+  </form>
+  <!-- Botón Volver -->
+  <button type="button" class="btn volver" (click)="goBack()">Volver</button>
+</div>
+
   
 

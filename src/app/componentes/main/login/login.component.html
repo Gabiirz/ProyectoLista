@@ -3,20 +3,62 @@
   
   <!-- Formulario para agregar/editar usuario -->
   <form [formGroup]="usuarioForm" (ngSubmit)="selectedUsuario ? updateUsuario() : addUsuario()">
-    <div>
-      <input id="nombre" type="text" formControlName="nombre" placeholder="Nombre" />
+    
+    <!-- Input de Nombre -->
+    <div class="input-group">
+      <input
+        id="nombre"
+        type="text"
+        formControlName="nombre"
+        placeholder="Nombre" />
     </div>
-    <div>
-      <input id="contrasena" type="password" formControlName="contrasena" placeholder="Contraseña" />
+
+    <!-- Campo Contraseña -->
+    <div class="input-group">
+      <input
+        id="contrasena"
+        [type]="showPassword ? 'text' : 'password'"
+        formControlName="contrasena"
+        placeholder="Contraseña" />
+      <!-- Tick: Se muestra cuando las contraseñas coinciden -->
+      <span *ngIf="passwordsMatch" class="tick-icon">&#10003;</span>
+      <!-- Ojo para alternar visibilidad -->
+      <span class="toggle-password" (click)="togglePasswordVisibility('password')">
+        {{ showPassword ? '🙈' : '👁️' }}
+      </span>
     </div>
-    <div>
-     
-      <input id="rol" type="text" formControlName="rol" placeholder="Rol" />
+
+    <!-- Campo Confirmar Contraseña -->
+    <div class="input-group">
+      <input
+        id="confirmarContrasena"
+        [type]="showConfirmPassword ? 'text' : 'password'"
+        formControlName="confirmarContrasena"
+        placeholder="Confirmar Contraseña" />
+      <!-- Tick: Se muestra cuando las contraseñas coinciden -->
+      <span *ngIf="passwordsMatch" class="tick-icon">&#10003;</span>
+      <!-- Ojo para alternar visibilidad -->
+      <span class="toggle-password" (click)="togglePasswordVisibility('confirm')">
+        {{ showConfirmPassword ? '🙈' : '👁️' }}
+      </span>
     </div>
-    <!-- Botón de enviar (Actualizar o Agregar) -->
-    <button type="submit">{{ selectedUsuario ? 'Actualizar' : 'Agregar' }} Usuario</button>
-    <!-- Botón Cancelar, se muestra solo si se está editando (selectedUsuario existe) -->
-    <button type="button" *ngIf="selectedUsuario" (click)="cancelUpdate()">Cancelar</button>
+
+    <!-- Campo Rol como select con placeholder oculto en la lista -->
+    <div class="input-group">
+      <select id="rol" formControlName="rol">
+        <option value="" disabled selected hidden>Seleccione Rol</option>
+        <option *ngFor="let rol of roles" [value]="rol">{{ rol }}</option>
+      </select>
+    </div>
+
+    <!-- Botón de envío (Actualizar o Agregar) -->
+    <button type="submit">
+      {{ selectedUsuario ? 'Actualizar' : 'Agregar' }} Usuario
+    </button>
+    <!-- Botón Cancelar, se muestra solo si se está editando -->
+    <button type="button" *ngIf="selectedUsuario" (click)="cancelUpdate()">
+      Cancelar
+    </button>
   </form>
   
   <hr />
@@ -27,16 +69,18 @@
     <ul>
       <li *ngFor="let usuario of usuarios">
         <div class="listado">
-         
           <span><strong>{{ usuario.nombre }}</strong> ({{ usuario.rol }})</span>
           <div class="user-buttons">
-
             <button class="btnEdit" (click)="selectUsuario(usuario)">Editar</button>
-            <button class="btnEliminate" (click)="deleteUsuario(usuario.idusuario)">Eliminar</button>
+            <button class="btnEliminate" (click)="deleteUsuario(usuario.idusuario)">
+              Eliminar
+            </button>
           </div>
         </div>
       </li>
     </ul>
   </div>
 </div>
+
+
 

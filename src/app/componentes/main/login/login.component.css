@@ -25,7 +25,7 @@ body {
 }
 
 /* ============================== */
-/* FORMULARIO (Sigue igual) */
+/* FORMULARIO */
 /* ============================== */
 form {
   margin: 1rem auto;
@@ -41,12 +41,15 @@ form h3 {
   margin-bottom: 1.5rem;
   color: #222;
 }
+
 h2, h3 {
   text-align: center;
 }
-h2{
+
+h2 {
   font-size: 30px;
 }
+
 form label {
   display: block;
   margin-bottom: 0.5rem;
@@ -54,12 +57,17 @@ form label {
   color: #444;
 }
 
-form input,
-form textarea,
-form select {
+/* Agrupación de inputs, select e íconos */
+.input-group {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.input-group input,
+.input-group select {
   width: 100%;
   padding: 0.8rem;
-  margin-bottom: 1rem;
+  padding-right: 3rem; /* Espacio para los íconos (tick y ojo) */
   border: 1px solid #ccc;
   border-radius: 6px;
   background-color: #fff;
@@ -67,14 +75,34 @@ form select {
   transition: border 0.3s ease, box-shadow 0.3s ease;
 }
 
-form input:focus,
-form textarea:focus,
-form select:focus {
+.input-group input:focus,
+.input-group select:focus {
   border-color: #5e9cff;
   box-shadow: 0 0 8px rgba(94, 156, 255, 0.4);
   outline: none;
 }
 
+/* Ícono del tick (se muestra si las contraseñas coinciden) */
+.tick-icon {
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  color: green;
+}
+
+/* Ícono para alternar visibilidad (ojo) */
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* Botón de envío */
 form button {
   width: 100%;
   padding: 0.8rem;
@@ -155,19 +183,16 @@ li {
   border-bottom: 1px solid #e0e0e0;
 }
 
-/* Contenedor de cada registro */
 .listado {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Separa el <span> y los botones */
+  justify-content: space-between;
   width: 100%;
 }
 
-/* Contenedor de botones a la derecha */
 .user-buttons {
   display: flex;
   gap: 1rem;
-  /* Al usar justify-content: space-between en .listado, no es necesario margin-left: auto */
 }
 
 /* ============================== */
@@ -179,4 +204,5 @@ li {
   color: #888;
   margin-top: 1rem;
 }
+
 

@@ -24,6 +24,9 @@ export class AddComponent implements OnInit {
   // Array para almacenar la lista de usuarios
   usuarios: Usuario[] = [];
 
+  // Variable para el contador de letras de la descripción
+  descripcionLength: number = 0;
+
   constructor(
     private taskService: TaskService,
     private usuarioService: UsuarioService,
@@ -37,7 +40,12 @@ export class AddComponent implements OnInit {
       titulo: ['', [Validators.required, Validators.maxLength(10)]],
       hora: ['', Validators.required],
       descripcion: ['', [Validators.required, Validators.minLength(20)]],
-      usuario_id: ['', Validators.required]  // Valor inicial vacío
+      usuario_id: ['', Validators.required]
+    });
+
+    // Suscribirse a los cambios en el campo 'descripcion' para actualizar el contador
+    this.form.get('descripcion')?.valueChanges.subscribe(value => {
+      this.descripcionLength = value ? value.length : 0;
     });
 
     // Cargar los usuarios para el select
@@ -64,11 +72,10 @@ export class AddComponent implements OnInit {
     // Combinar la fecha con el horario seleccionado para formar "YYYY-MM-DD HH:MM:SS"
     const horaFormateada = `${fecha} ${this.form.value.hora}:00`;
 
-    // Verificar y convertir el valor del select a número
-    console.log('Valor de usuario_id antes de convertir:', this.form.value.usuario_id, typeof this.form.value.usuario_id);
+    // Convertir el valor del select a número
     const usuarioId = Number(this.form.value.usuario_id);
 
-    // Construir el objeto tarea de forma explícita
+    // Construir el objeto tarea
     const tarea: Tarea = {
       titulo: this.form.value.titulo,
       descripcion: this.form.value.descripcion,
@@ -76,8 +83,7 @@ export class AddComponent implements OnInit {
       usuario_id: usuarioId,
       tipotarea_id: 1, // Valor por defecto; ajusta según tu lógica
       comentario_id: 1, // Valor por defecto; ajusta según tu lógica
-      etiqueta_id: 1 // Valor por defecto; ajusta según tu lógica
-      ,
+      etiqueta_id: 1, // Valor por defecto; ajusta según tu lógica
       idtarea: 0
     };
 
@@ -96,6 +102,7 @@ export class AddComponent implements OnInit {
     });
   }
 }
+
 
 
 

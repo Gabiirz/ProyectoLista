@@ -2,31 +2,53 @@
   <h2>Editar</h2>
   
   <form [formGroup]="form" (ngSubmit)="editTarea()">
+    <!-- Campo Título -->
     <div class="nombreE">
       <label for="nombre">Nombre</label>
-      <input type="text" id="nombre" placeholder="titulo" formControlName="titulo" required />
+      <input type="text" id="nombre" placeholder="Título" formControlName="titulo" required class="big-input"/>
     </div>
 
+    <!-- Campo Encargado -->
+    <div class="usuarioE">
+      <label for="usuario">Encargado</label>
+      <select id="usuario" formControlName="usuario_id" required class="big-input">
+        <option value="" disabled>Selecciona Encargado</option>
+        <option *ngFor="let user of usuarios" [value]="user.idusuario">
+          {{ user.nombre }}
+        </option>
+      </select>
+    </div>
+
+    <!-- Campo Horario -->
     <div class="horarioE">
       <label for="horario">Horario</label>
       <div class="elegirHora">
-        <select id="horario" formControlName="hora" required>
-          <option *ngFor="let hora of Horario" [value]="hora">{{hora}}</option>
+        <select id="horario" formControlName="hora" required class="big-input">
+          <option *ngFor="let hora of Horario" [value]="hora">{{ hora }}</option>
         </select>
       </div>
     </div>
 
+    <!-- Campo Descripción -->
     <div class="descripcionC">
       <div class="labelDescripcion">
         <label for="descripcion">Descripción</label>
       </div>
-      <input type="text" id="descripcion" formControlName="descripcion" required />
+      <textarea id="descripcion" formControlName="descripcion" required class="big-input"></textarea>
+      <!-- Contador de letras para la descripción -->
+      <p class="counter" [ngClass]="{'valid': descriptionLength >= 20, 'invalid': descriptionLength < 20}">
+        {{ descriptionLength }} / 20
+      </p>
     </div>
 
     <div class="btnEditar">
       <button [disabled]="form.invalid" class="editarbutton" type="submit">
         Editar
       </button>
+    </div>
+
+    <div class="btnVolver">
+      <button type="button" class="volverbutton" (click)="goBack()">Volver</button>
     </div>
 
     <div *ngIf="form.invalid && form.touched" class="error-message">

@@ -14,7 +14,7 @@
     text-align: center;
 }
 
-/* Título "Editar" (mucho más grande y en blanco) */
+/* Título "Editar" */
 .container h2 {
     font-size: 3rem;
     color: #ffffff;
@@ -23,58 +23,70 @@
 }
 
 /* ========================================= */
-/* BOTÓN EDITAR */
+/* BOTONES */
 /* ========================================= */
-.btnEditar {
+.btnEditar, .btnVolver {
     text-align: center;
+    width: 100%;
+    margin-top: 1rem;
 }
 
 .editarbutton {
     padding: 3%;
     color: #ffffff;
-    background: #3498db;    /* Color base para el botón */
+    background: #3498db;
     border: none;
     border-radius: 5%;
     cursor: pointer;
     transition: background 0.3s ease, transform 0.3s ease;
+    width: 80%;
 }
 
 .editarbutton:hover {
-    background: #2980b9;    /* Color al hacer hover */
+    background: #2980b9;
+    transform: translateY(-2.5px);
+}
+
+.volverbutton {
+    padding: 3%;
+    color: #ffffff;
+    background: #95a5a6;
+    border: none;
+    border-radius: 5%;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    width: 80%;
+}
+
+.volverbutton:hover {
+    background: #7f8c8d;
     transform: translateY(-2.5px);
 }
 
 /* ========================================= */
-/* ESTILOS GENERALES PARA INPUTS, ETIQUETAS Y SECCIONES */
+/* ESTILOS GENERALES PARA INPUTS, SELECTS Y TEXTAREAS */
 /* ========================================= */
-input {
-    display: flex;
+.big-input {
     width: 100%;
-    padding: 0.75rem;
+    padding: 1rem;
     margin-bottom: 1rem;
+    font-size: 1.2rem;
     border: 1px solid #ccc;
     border-radius: 4px;
-    font-size: 1rem;
 }
 
 label {
-    margin-bottom: 1.5%;
+    margin-bottom: 0.5rem;
     display: block;
     font-weight: bold;
-    color: #000; /* Si deseas que los labels se vean, puedes ajustarlo */
+    color: #000;
+    font-size: 1.2rem;
 }
 
 /* Espaciados para secciones */
-.descripcionC {
-    margin: 15% 0 15% 0;
-}
-
-.horarioE {
-    margin: 15% 0 15% 0;  
-}
-
-.nombreE {
-    margin: 0% 0 15% 0;
+.nombreE, .usuarioE, .horarioE, .descripcionC {
+    width: 100%;
+    margin-bottom: 1.5rem;
 }
 
 .elegirHora {
@@ -82,19 +94,27 @@ label {
 }
 
 /* ========================================= */
-/* BOTÓN PARA SELECCIONAR HORA */
+/* CONTADOR DE LETRAS */
 /* ========================================= */
-.horaCSS {
-    background: #B0D0D3;
-    border: none;
-    border-radius: 5%;
-    padding: 2%;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.3s ease;
+.counter {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    text-align: right;
 }
 
-.horaCSS:hover {
-    background: #2c5a6cc2;
-    transform: translateY(-2.5px);
+.counter.valid {
+    color: green;
 }
 
+.counter.invalid {
+    color: red;
+}
+
+/* ========================================= */
+/* MENSAJE DE ERROR */
+/* ========================================= */
+.error-message p {
+    color: red;
+    font-size: 1rem;
+    margin-top: 1rem;
+}
