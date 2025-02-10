@@ -1,34 +1,33 @@
 <div class="container">
     <div class="vacio">
-        <p *ngIf="tareas.length === 0"> No hay tareas</p>
+      <p *ngIf="tareas.length === 0">No hay tareas</p>
     </div>
-
-    <div class="listado" *ngFor="let tarea of tareas;
-                let i = index">
-
-        <div class="tareasN">
-            <p>{{tarea.titulo}}</p>
-        </div>
-
-        <div class="horario">
-            <p>Fecha y Hora: {{tarea.hora}}</p>
-        </div>
-
-
-        <div class="btnDetalles">
-            <button class="btnDetail" (click)="viewTarea(tarea.idtarea)">Ver tarea</button>
-        </div>
-
-
-        <div class="btnEditar">
-            <button class="btnEdit" (click)="editarTarea(tarea.idtarea)">Editar</button>
-        </div>
-
-        <div class="btnELiminar">
-            <button class="btnEliminate" (click)="deleteTarea(tarea.idtarea)">Eliminar</button>
-        </div>
-
-        
-
+  
+    <div class="listado" *ngFor="let tarea of tareas; let i = index">
+      <div class="tareasN">
+        <p>{{ tarea.titulo }}</p>
+      </div>
+  
+      <div class="horario">
+        <p>Fecha y Hora: {{ tarea.hora }}</p>
+      </div>
+  
+      <!-- Mostrar el nombre del usuario asignado -->
+      <div class="usuario">
+        <p>Usuario: {{ getUserName(tarea.usuario_id) }}</p>
+      </div>
+  
+      <div class="btnDetalles">
+        <button class="btnDetail" (click)="viewTarea(tarea.idtarea)">Ver tarea</button>
+      </div>
+  
+      <div class="btnEditar">
+        <button class="btnEdit" (click)="editarTarea(tarea.idtarea)">Editar</button>
+      </div>
+  
+      <div class="btnELiminar">
+        <button class="btnEliminate" (click)="deleteTarea(tarea.idtarea)">Eliminar</button>
+      </div>
     </div>
-</div>
+  </div>
+  

@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { TaskService } from '../../../tareaServicio/tarea.service';
+import { UsuarioService } from '../../../usuarioServicio/usuario.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,33 +14,58 @@ import { Router } from '@angular/router';
 export class ListComponent implements OnInit {
 
   tareas: any[] = []; // Lista de tareas
+  usuarios: any[] = []; // Lista de usuarios
   loading: boolean = true; // Estado de carga
   error: string | null = null; // Mensaje de error
 
-  constructor(private taskService: TaskService, private router: Router) {}
+  constructor(
+    private taskService: TaskService,
+    private usuarioService: UsuarioService,
+    private router: Router
+  ) {}
 
-
-  
   ngOnInit(): void {
-    // Llamada al servicio para obtener todas las tareas
+    // Cargar las tareas
     this.taskService.getTareas().subscribe({
       next: (data) => {
-        console.log(data);
-        this.tareas = data; // Asigna las tareas a la propiedad tareas
-        this.loading = false; // Cambiar el estado de carga
+        console.log('Tareas:', data);
+        this.tareas = data;
+        this.loading = false;
       },
       error: (err) => {
-        this.error = 'Error al obtener tareas. Intenta nuevamente.'; // Manejo de error
+        this.error = 'Error al obtener tareas. Intenta nuevamente.';
         console.error('Error al obtener tareas:', err);
-        this.loading = false; // Cambiar el estado de carga
+        this.loading = false;
       }
     });
+
+    // Cargar los usuarios
+    this.usuarioService.getUsuarios().subscribe({
+      next: (data) => {
+        console.log('Usuarios:', data);
+        this.usuarios = data;
+      },
+      error: (err) => {
+        console.error('Error al cargar usuarios:', err);
+      }
+    });
+  }
+
+  /**
+   * Retorna el nombre del usuario a partir de su identificador.
+   * Se busca utilizando tanto 'id' como 'idusuario' para cubrir ambas posibilidades.
+   */
+  getUserName(usuario_id: number): string {
+    const user = this.usuarios.find(
+      (u) => u.id === usuario_id || u.idusuario === usuario_id
+    );
+    return user ? user.nombre : 'Desconocido';
   }
 
   deleteTarea(id: number): void {
     this.taskService.deleteTarea(id).subscribe({
       next: (tareaEliminada) => {
-        // Si en tu modelo la propiedad identificadora es 'idtarea'
+        // Asumiendo que la propiedad identificadora es 'idtarea'
         this.tareas = this.tareas.filter(t => t.idtarea !== id);
       },
       error: (err) => {
@@ -49,18 +75,18 @@ export class ListComponent implements OnInit {
   }
 
   viewTarea(id: number): void {
-    console.log(id); // Verifica el valor de `id`
+    console.log('Ver tarea con ID:', id);
     if (id) {
-      this.router.navigate(['/tarea', id]); // Solo navega si el id es válido
+      this.router.navigate(['/tarea', id]);
     } else {
       console.error('ID de tarea es indefinido');
     }
   }
 
   editarTarea(id: number): void {
-    // Navega a la edición de la tarea
     this.router.navigate(['/edit', id]);
   }
 }
+
 
 

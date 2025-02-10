@@ -1,41 +1,77 @@
 <div class="container">
-    <form [formGroup]="form" (ngSubmit)="addTarea()">
-      <div class="titulo">
-        <h3 class="tituloadd">Añadir tarea</h3>
+  <form [formGroup]="form" (ngSubmit)="addTarea()">
+    <div class="titulo">
+      <h3 class="tituloadd">Añadir tarea</h3>
+    </div>
+
+    <!-- Campo Título -->
+    <div class="box-nombre">
+      <label for="titulo">Título</label>
+      <input id="titulo" type="text" formControlName="titulo" />
+      <div *ngIf="form.get('titulo')?.invalid && form.get('titulo')?.touched">
+        <small *ngIf="form.get('titulo')?.hasError('required')">
+          El título es obligatorio.
+        </small>
+        <small *ngIf="form.get('titulo')?.hasError('maxlength')">
+          El título no puede exceder 10 caracteres.
+        </small>
       </div>
-  
-      <div class="box-nombre">
-        <label for="titulo">Título</label>
-        <input id="titulo" formControlName="titulo"/>
-        <div *ngIf="form.get('titulo')?.invalid && form.get('titulo')?.touched">
-          <!-- Mensajes de error si es necesario -->
-        </div>
+    </div>
+
+    <!-- Campo Horario -->
+    <div class="selecioHorario">
+      <label for="hora">Horario</label>
+      <select id="hora" formControlName="hora">
+        <option value="">Seleccione un horario</option>
+        <option *ngFor="let time of Horario" [value]="time">{{ time }}</option>
+      </select>
+      <div *ngIf="form.get('hora')?.invalid && form.get('hora')?.touched">
+        <small *ngIf="form.get('hora')?.hasError('required')">
+          El horario es obligatorio.
+        </small>
       </div>
-  
-      <div class="selecioHorario">
-        <label for="hora">Horario</label>
-        <select id="hora" formControlName="hora">
-          <option *ngFor="let time of Horario" [value]="time">{{time}}</option>
-        </select>
-        <div *ngIf="form.get('hora')?.invalid && form.get('hora')?.touched">
-          <small *ngIf="form.get('hora')?.hasError('required')">El horario es obligatorio.</small>
-        </div>
+    </div>
+
+    <!-- Select para elegir el usuario asignado -->
+    <div class="box-usuario">
+      <label for="usuario">Usuario</label>
+      <select id="usuario" formControlName="usuario_id">
+        <option value="">Seleccione un usuario</option>
+        <!-- Usamos usuario.idusuario en lugar de usuario.id -->
+        <option *ngFor="let usuario of usuarios" [value]="usuario.idusuario">
+          {{ usuario.nombre }}
+        </option>
+      </select>
+      <div *ngIf="form.get('usuario_id')?.invalid && form.get('usuario_id')?.touched">
+        <small *ngIf="form.get('usuario_id')?.hasError('required')">
+          Debe seleccionar un usuario.
+        </small>
       </div>
-  
-      <div class="descripcionTarea">
-        <label for="descripcion">Descripción de la tarea</label>
-        <textarea id="descripcion" formControlName="descripcion"></textarea>
-        <div *ngIf="form.get('descripcion')?.invalid && form.get('descripcion')?.touched">
-          <!-- Mensajes de error si es necesario -->
-        </div>
+    </div>
+
+    <!-- Campo Descripción -->
+    <div class="descripcionTarea">
+      <label for="descripcion">Descripción de la tarea</label>
+      <textarea id="descripcion" formControlName="descripcion"></textarea>
+      <div *ngIf="form.get('descripcion')?.invalid && form.get('descripcion')?.touched">
+        <small *ngIf="form.get('descripcion')?.hasError('required')">
+          La descripción es obligatoria.
+        </small>
+        <small *ngIf="form.get('descripcion')?.hasError('minlength')">
+          La descripción debe tener al menos 20 caracteres.
+        </small>
       </div>
-  
-      <div class="btnadd">
-        <button [disabled]="form.invalid" class="btn">
-          Añadir tarea
-        </button>
-      </div>
-  
-    </form>
-  </div>
+    </div>
+
+    <!-- Botón Enviar -->
+    <div class="btnadd">
+      <button [disabled]="form.invalid" type="submit" class="btn">
+        Añadir tarea
+      </button>
+    </div>
+  </form>
+</div>
+
+
+
   
